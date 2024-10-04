@@ -4,7 +4,8 @@
   "info": {
     "singularName": "affiliate-program",
     "pluralName": "affiliate-programs",
-    "displayName": "Affiliate Programs"
+    "displayName": "Affiliate Programs",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,12 @@
   "attributes": {
     "program_name": {
       "type": "string"
+    },
+    "program_softwares": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::program-software.program-software",
+      "inversedBy": "affiliate_programs"
     }
   }
 }

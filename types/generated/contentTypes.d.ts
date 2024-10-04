@@ -7,12 +7,17 @@ export interface ApiAffiliateProgramAffiliateProgram
     singularName: 'affiliate-program';
     pluralName: 'affiliate-programs';
     displayName: 'Affiliate Programs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     program_name: Schema.Attribute.String;
+    program_softwares: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::program-software.program-software'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -41,6 +46,10 @@ export interface ApiProgramSoftwareProgramSoftware
   };
   attributes: {
     software_name: Schema.Attribute.String;
+    affiliate_programs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

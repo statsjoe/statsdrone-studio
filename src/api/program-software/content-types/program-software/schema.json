@@ -13,6 +13,12 @@
   "attributes": {
     "software_name": {
       "type": "string"
+    },
+    "affiliate_programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::affiliate-program.affiliate-program",
+      "mappedBy": "program_softwares"
     }
   }
 }
