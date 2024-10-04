@@ -522,6 +522,30 @@ export interface ApiAffiliateProgramAffiliateProgram
   };
 }
 
+export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
+  collectionName: 'brands';
+  info: {
+    singularName: 'brand';
+    pluralName: 'brands';
+    displayName: 'Brands';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+  };
+}
+
 export interface ApiProgramSoftwareProgramSoftware
   extends Struct.CollectionTypeSchema {
   collectionName: 'program_softwares';
@@ -970,6 +994,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
+      'api::brand.brand': ApiBrandBrand;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
       'api::program-software-login.program-software-login': ApiProgramSoftwareLoginProgramSoftwareLogin;
       'admin::permission': AdminPermission;
