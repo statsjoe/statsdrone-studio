@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "affiliate_managers",
+  "info": {
+    "singularName": "affiliate-manager",
+    "pluralName": "affiliate-managers",
+    "displayName": "Affiliate Managers"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "affiliate_manager_name": {
+      "type": "string"
+    },
+    "affiliate_programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::affiliate-program.affiliate-program",
+      "inversedBy": "affiliate_managers"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::brand.brand",
+      "inversedBy": "affiliate_managers"
+    },
+    "affiliate_manager_email": {
+      "type": "email"
+    },
+    "affiliate_manager_skype": {
+      "type": "string"
+    }
+  }
+}

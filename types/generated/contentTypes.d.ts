@@ -485,6 +485,41 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAffiliateManagerAffiliateManager
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'affiliate_managers';
+  info: {
+    singularName: 'affiliate-manager';
+    pluralName: 'affiliate-managers';
+    displayName: 'Affiliate Managers';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    affiliate_manager_name: Schema.Attribute.String;
+    affiliate_programs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
+    brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
+    affiliate_manager_email: Schema.Attribute.Email;
+    affiliate_manager_skype: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::affiliate-manager.affiliate-manager'
+    >;
+  };
+}
+
 export interface ApiAffiliateProgramAffiliateProgram
   extends Struct.CollectionTypeSchema {
   collectionName: 'affiliate_programs';
@@ -506,6 +541,10 @@ export interface ApiAffiliateProgramAffiliateProgram
     brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
     program_website: Schema.Attribute.String;
     program_login: Schema.Attribute.String;
+    affiliate_managers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-manager.affiliate-manager'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -632,6 +671,10 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
     >;
     brand_website: Schema.Attribute.String;
     bonus: Schema.Attribute.Relation<'manyToOne', 'api::bonus.bonus'>;
+    affiliate_managers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-manager.affiliate-manager'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1052,6 +1095,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::affiliate-manager.affiliate-manager': ApiAffiliateManagerAffiliateManager;
       'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
       'api::bonus.bonus': ApiBonusBonus;
       'api::brand.brand': ApiBrandBrand;

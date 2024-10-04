@@ -32,6 +32,12 @@
     },
     "program_login": {
       "type": "string"
+    },
+    "affiliate_managers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::affiliate-manager.affiliate-manager",
+      "mappedBy": "affiliate_programs"
     }
   }
 }
