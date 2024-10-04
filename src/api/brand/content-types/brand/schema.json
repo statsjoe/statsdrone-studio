@@ -4,7 +4,8 @@
   "info": {
     "singularName": "brand",
     "pluralName": "brands",
-    "displayName": "Brands"
+    "displayName": "Brands",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,12 @@
   "attributes": {
     "brand_name": {
       "type": "string"
+    },
+    "affiliate_programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::affiliate-program.affiliate-program",
+      "inversedBy": "brands"
     }
   }
 }

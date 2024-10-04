@@ -503,10 +503,7 @@ export interface ApiAffiliateProgramAffiliateProgram
       'manyToMany',
       'api::program-software.program-software'
     >;
-    program_software_logins: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::program-software-login.program-software-login'
-    >;
+    brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -528,12 +525,17 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
     singularName: 'brand';
     pluralName: 'brands';
     displayName: 'Brands';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     brand_name: Schema.Attribute.String;
+    affiliate_programs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -563,10 +565,6 @@ export interface ApiProgramSoftwareProgramSoftware
       'manyToMany',
       'api::affiliate-program.affiliate-program'
     >;
-    program_software_logins: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::program-software-login.program-software-login'
-    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -578,42 +576,6 @@ export interface ApiProgramSoftwareProgramSoftware
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::program-software.program-software'
-    >;
-  };
-}
-
-export interface ApiProgramSoftwareLoginProgramSoftwareLogin
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'program_software_logins';
-  info: {
-    singularName: 'program-software-login';
-    pluralName: 'program-software-logins';
-    displayName: 'program-software-logins';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    login_url: Schema.Attribute.String;
-    affiliate_program: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::affiliate-program.affiliate-program'
-    >;
-    program_software: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::program-software.program-software'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::program-software-login.program-software-login'
     >;
   };
 }
@@ -996,7 +958,6 @@ declare module '@strapi/strapi' {
       'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
       'api::brand.brand': ApiBrandBrand;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
-      'api::program-software-login.program-software-login': ApiProgramSoftwareLoginProgramSoftwareLogin;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

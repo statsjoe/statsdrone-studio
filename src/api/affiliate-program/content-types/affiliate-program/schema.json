@@ -21,11 +21,11 @@
       "target": "api::program-software.program-software",
       "inversedBy": "affiliate_programs"
     },
-    "program_software_logins": {
+    "brands": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::program-software-login.program-software-login",
-      "mappedBy": "affiliate_program"
+      "relation": "manyToMany",
+      "target": "api::brand.brand",
+      "mappedBy": "affiliate_programs"
     }
   }
 }
