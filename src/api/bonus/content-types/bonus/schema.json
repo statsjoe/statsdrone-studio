@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bonuses",
+  "info": {
+    "singularName": "bonus",
+    "pluralName": "bonuses",
+    "displayName": "Bonuses",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bonus_name": {
+      "type": "string"
+    },
+    "bonus_id": {
+      "type": "uid"
+    },
+    "Currency": {
+      "type": "enumeration",
+      "enum": [
+        "USD – United States Dollar",
+        "EUR – Euro",
+        "GBP – British Pound Sterling",
+        "CAD – Canadian Dollar",
+        "AUD – Australian Dollar",
+        "NZD – New Zealand Dollar",
+        "JPY – Japanese Yen",
+        "CNY – Chinese Yuan",
+        "INR – Indian Rupee",
+        "RUB – Russian Ruble",
+        "BRL – Brazilian Real",
+        "ZAR – South African Rand",
+        "CHF – Swiss Franc",
+        "SEK – Swedish Krona",
+        "NOK – Norwegian Krone",
+        "DKK – Danish Krone",
+        "PLN – Polish Zloty",
+        "CZK – Czech Koruna",
+        "HKD – Hong Kong Dollar",
+        "SGD – Singapore Dollar",
+        "KRW – South Korean Won",
+        "MYR – Malaysian Ringgit",
+        "THB – Thai Baht",
+        "MXN – Mexican Peso",
+        "ARS – Argentine Peso",
+        "VND – Vietnamese Dong",
+        "PHP – Philippine Peso",
+        "AED – United Arab Emirates Dirham",
+        "SAR – Saudi Riyal",
+        "TRY – Turkish Lira",
+        "ILS – Israeli New Shekel",
+        "CLP – Chilean Peso",
+        "PKR – Pakistani Rupee",
+        "BGN – Bulgarian Lev",
+        "HUF – Hungarian Forint"
+      ]
+    },
+    "bonus_amount": {
+      "type": "string"
+    },
+    "maximum_bonus_amount": {
+      "type": "string"
+    },
+    "minimum_deposit": {
+      "type": "string"
+    },
+    "wagering_requirements": {
+      "type": "string"
+    },
+    "bonus_code": {
+      "type": "string"
+    },
+    "expiry_date": {
+      "type": "string"
+    },
+    "country_restrictions": {
+      "type": "string"
+    },
+    "payment_method_restrictions": {
+      "type": "string"
+    },
+    "maximum_bet_limit": {
+      "type": "string"
+    },
+    "bonus_terms_conditions": {
+      "type": "string"
+    }
+  }
+}

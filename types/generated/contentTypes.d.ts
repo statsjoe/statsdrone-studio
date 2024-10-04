@@ -506,6 +506,7 @@ export interface ApiAffiliateProgramAffiliateProgram
     brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
     program_website: Schema.Attribute.String;
     program_login: Schema.Attribute.String;
+    program_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -518,6 +519,81 @@ export interface ApiAffiliateProgramAffiliateProgram
       'oneToMany',
       'api::affiliate-program.affiliate-program'
     >;
+  };
+}
+
+export interface ApiBonusBonus extends Struct.CollectionTypeSchema {
+  collectionName: 'bonuses';
+  info: {
+    singularName: 'bonus';
+    pluralName: 'bonuses';
+    displayName: 'Bonuses';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bonus_name: Schema.Attribute.String;
+    bonus_id: Schema.Attribute.UID;
+    Currency: Schema.Attribute.Enumeration<
+      [
+        'USD \u2013 United States Dollar',
+        'EUR \u2013 Euro',
+        'GBP \u2013 British Pound Sterling',
+        'CAD \u2013 Canadian Dollar',
+        'AUD \u2013 Australian Dollar',
+        'NZD \u2013 New Zealand Dollar',
+        'JPY \u2013 Japanese Yen',
+        'CNY \u2013 Chinese Yuan',
+        'INR \u2013 Indian Rupee',
+        'RUB \u2013 Russian Ruble',
+        'BRL \u2013 Brazilian Real',
+        'ZAR \u2013 South African Rand',
+        'CHF \u2013 Swiss Franc',
+        'SEK \u2013 Swedish Krona',
+        'NOK \u2013 Norwegian Krone',
+        'DKK \u2013 Danish Krone',
+        'PLN \u2013 Polish Zloty',
+        'CZK \u2013 Czech Koruna',
+        'HKD \u2013 Hong Kong Dollar',
+        'SGD \u2013 Singapore Dollar',
+        'KRW \u2013 South Korean Won',
+        'MYR \u2013 Malaysian Ringgit',
+        'THB \u2013 Thai Baht',
+        'MXN \u2013 Mexican Peso',
+        'ARS \u2013 Argentine Peso',
+        'VND \u2013 Vietnamese Dong',
+        'PHP \u2013 Philippine Peso',
+        'AED \u2013 United Arab Emirates Dirham',
+        'SAR \u2013 Saudi Riyal',
+        'TRY \u2013 Turkish Lira',
+        'ILS \u2013 Israeli New Shekel',
+        'CLP \u2013 Chilean Peso',
+        'PKR \u2013 Pakistani Rupee',
+        'BGN \u2013 Bulgarian Lev',
+        'HUF \u2013 Hungarian Forint',
+      ]
+    >;
+    bonus_amount: Schema.Attribute.String;
+    maximum_bonus_amount: Schema.Attribute.String;
+    minimum_deposit: Schema.Attribute.String;
+    wagering_requirements: Schema.Attribute.String;
+    bonus_code: Schema.Attribute.String;
+    expiry_date: Schema.Attribute.String;
+    country_restrictions: Schema.Attribute.String;
+    payment_method_restrictions: Schema.Attribute.String;
+    maximum_bet_limit: Schema.Attribute.String;
+    bonus_terms_conditions: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::bonus.bonus'>;
   };
 }
 
@@ -539,6 +615,7 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
       'api::affiliate-program.affiliate-program'
     >;
     brand_website: Schema.Attribute.String;
+    brand_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -558,6 +635,7 @@ export interface ApiProgramSoftwareProgramSoftware
     singularName: 'program-software';
     pluralName: 'program-softwares';
     displayName: 'Program Software';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -568,6 +646,7 @@ export interface ApiProgramSoftwareProgramSoftware
       'manyToMany',
       'api::affiliate-program.affiliate-program'
     >;
+    software_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -959,6 +1038,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
+      'api::bonus.bonus': ApiBonusBonus;
       'api::brand.brand': ApiBrandBrand;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
       'admin::permission': AdminPermission;
