@@ -1,70 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface ApiAffiliateProgramAffiliateProgram
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'affiliate_programs';
-  info: {
-    singularName: 'affiliate-program';
-    pluralName: 'affiliate-programs';
-    displayName: 'Affiliate Programs';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    program_name: Schema.Attribute.String;
-    program_softwares: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::program-software.program-software'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::affiliate-program.affiliate-program'
-    >;
-  };
-}
-
-export interface ApiProgramSoftwareProgramSoftware
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'program_softwares';
-  info: {
-    singularName: 'program-software';
-    pluralName: 'program-softwares';
-    displayName: 'Program Software';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    software_name: Schema.Attribute.String;
-    affiliate_programs: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::affiliate-program.affiliate-program'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::program-software.program-software'
-    >;
-  };
-}
-
 export interface PluginUploadFile extends Struct.CollectionTypeSchema {
   collectionName: 'files';
   info: {
@@ -550,6 +485,115 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAffiliateProgramAffiliateProgram
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'affiliate_programs';
+  info: {
+    singularName: 'affiliate-program';
+    pluralName: 'affiliate-programs';
+    displayName: 'Affiliate Programs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    program_name: Schema.Attribute.String;
+    program_softwares: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::program-software.program-software'
+    >;
+    program_software_logins: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-software-login.program-software-login'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
+  };
+}
+
+export interface ApiProgramSoftwareProgramSoftware
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'program_softwares';
+  info: {
+    singularName: 'program-software';
+    pluralName: 'program-softwares';
+    displayName: 'Program Software';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    software_name: Schema.Attribute.String;
+    affiliate_programs: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
+    program_software_logins: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-software-login.program-software-login'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-software.program-software'
+    >;
+  };
+}
+
+export interface ApiProgramSoftwareLoginProgramSoftwareLogin
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'program_software_logins';
+  info: {
+    singularName: 'program-software-login';
+    pluralName: 'program-software-logins';
+    displayName: 'program-software-logins';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    login_url: Schema.Attribute.String;
+    affiliate_program: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::affiliate-program.affiliate-program'
+    >;
+    program_software: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::program-software.program-software'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::program-software-login.program-software-login'
+    >;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -915,8 +959,6 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
-      'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
-      'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
@@ -927,6 +969,9 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
+      'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
+      'api::program-software-login.program-software-login': ApiProgramSoftwareLoginProgramSoftwareLogin;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
