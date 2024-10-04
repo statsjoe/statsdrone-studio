@@ -536,6 +536,7 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::affiliate-program.affiliate-program'
     >;
+    brand_website: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

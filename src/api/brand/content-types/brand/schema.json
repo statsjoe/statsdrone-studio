@@ -20,6 +20,9 @@
       "relation": "manyToMany",
       "target": "api::affiliate-program.affiliate-program",
       "inversedBy": "brands"
+    },
+    "brand_website": {
+      "type": "string"
     }
   }
 }
