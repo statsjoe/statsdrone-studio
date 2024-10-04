@@ -584,6 +584,23 @@ export interface ApiBonusBonus extends Struct.CollectionTypeSchema {
     maximum_bet_limit: Schema.Attribute.String;
     bonus_terms_conditions: Schema.Attribute.String;
     brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+    bonus_type: Schema.Attribute.Enumeration<
+      [
+        'Welcome Bonus (Sign-Up Bonus)',
+        'No Deposit Bonus',
+        'Deposit Match Bonus',
+        'Free Spins Bonus',
+        'Reload Bonus',
+        'Cashback Bonus',
+        'VIP/High Roller Bonus',
+        'Loyalty Bonus (Comp Points)',
+        'Refer-a-Friend Bonus',
+        'Free Play Bonus',
+        'Tournament Bonuses',
+        'Reload Free Spins',
+        'Wagering Free Spins',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

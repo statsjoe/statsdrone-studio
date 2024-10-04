@@ -90,6 +90,24 @@
       "relation": "oneToMany",
       "target": "api::brand.brand",
       "mappedBy": "bonus"
+    },
+    "bonus_type": {
+      "type": "enumeration",
+      "enum": [
+        "Welcome Bonus (Sign-Up Bonus)",
+        "No Deposit Bonus",
+        "Deposit Match Bonus",
+        "Free Spins Bonus",
+        "Reload Bonus",
+        "Cashback Bonus",
+        "VIP/High Roller Bonus",
+        "Loyalty Bonus (Comp Points)",
+        "Refer-a-Friend Bonus",
+        "Free Play Bonus",
+        "Tournament Bonuses",
+        "Reload Free Spins",
+        "Wagering Free Spins"
+      ]
     }
   }
 }
