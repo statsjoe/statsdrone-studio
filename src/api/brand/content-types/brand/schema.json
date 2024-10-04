@@ -23,6 +23,12 @@
     },
     "brand_website": {
       "type": "string"
+    },
+    "bonus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bonus.bonus",
+      "inversedBy": "brands"
     }
   }
 }

@@ -583,6 +583,7 @@ export interface ApiBonusBonus extends Struct.CollectionTypeSchema {
     payment_method_restrictions: Schema.Attribute.String;
     maximum_bet_limit: Schema.Attribute.String;
     bonus_terms_conditions: Schema.Attribute.String;
+    brands: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -613,6 +614,7 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
       'api::affiliate-program.affiliate-program'
     >;
     brand_website: Schema.Attribute.String;
+    bonus: Schema.Attribute.Relation<'manyToOne', 'api::bonus.bonus'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

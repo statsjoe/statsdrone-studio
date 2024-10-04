@@ -84,6 +84,12 @@
     },
     "bonus_terms_conditions": {
       "type": "string"
+    },
+    "brands": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::brand.brand",
+      "mappedBy": "bonus"
     }
   }
 }
