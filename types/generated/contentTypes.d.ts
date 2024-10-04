@@ -1,5 +1,33 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface ApiAffiliateProgramAffiliateProgram
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'affiliate_programs';
+  info: {
+    singularName: 'affiliate-program';
+    pluralName: 'affiliate-programs';
+    displayName: 'Affiliate Programs';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    program_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::affiliate-program.affiliate-program'
+    >;
+  };
+}
+
 export interface ApiProgramSoftwareProgramSoftware
   extends Struct.CollectionTypeSchema {
   collectionName: 'program_softwares';
@@ -878,6 +906,7 @@ export interface AdminTransferTokenPermission
 declare module '@strapi/strapi' {
   export module Public {
     export interface ContentTypeSchemas {
+      'api::affiliate-program.affiliate-program': ApiAffiliateProgramAffiliateProgram;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;

@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "affiliate_programs",
+  "info": {
+    "singularName": "affiliate-program",
+    "pluralName": "affiliate-programs",
+    "displayName": "Affiliate Programs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "program_name": {
+      "type": "string"
+    }
+  }
+}
