@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "program_softwares",
+  "info": {
+    "singularName": "program-software",
+    "pluralName": "program-softwares",
+    "displayName": "Program Software"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "software_name": {
+      "type": "string"
+    }
+  }
+}
