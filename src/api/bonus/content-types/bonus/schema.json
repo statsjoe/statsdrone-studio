@@ -15,9 +15,6 @@
     "bonus_name": {
       "type": "string"
     },
-    "bonus_id": {
-      "type": "uid"
-    },
     "Currency": {
       "type": "enumeration",
       "enum": [

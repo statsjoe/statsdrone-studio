@@ -32,9 +32,6 @@
     },
     "program_login": {
       "type": "string"
-    },
-    "program_id": {
-      "type": "uid"
     }
   }
 }

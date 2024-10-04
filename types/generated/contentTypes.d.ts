@@ -506,7 +506,6 @@ export interface ApiAffiliateProgramAffiliateProgram
     brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
     program_website: Schema.Attribute.String;
     program_login: Schema.Attribute.String;
-    program_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -535,7 +534,6 @@ export interface ApiBonusBonus extends Struct.CollectionTypeSchema {
   };
   attributes: {
     bonus_name: Schema.Attribute.String;
-    bonus_id: Schema.Attribute.UID;
     Currency: Schema.Attribute.Enumeration<
       [
         'USD \u2013 United States Dollar',
@@ -615,7 +613,6 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
       'api::affiliate-program.affiliate-program'
     >;
     brand_website: Schema.Attribute.String;
-    brand_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -646,7 +643,6 @@ export interface ApiProgramSoftwareProgramSoftware
       'manyToMany',
       'api::affiliate-program.affiliate-program'
     >;
-    software_id: Schema.Attribute.UID;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

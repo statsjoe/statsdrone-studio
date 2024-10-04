@@ -20,9 +20,6 @@
       "relation": "manyToMany",
       "target": "api::affiliate-program.affiliate-program",
       "mappedBy": "program_softwares"
-    },
-    "software_id": {
-      "type": "uid"
     }
   }
 }

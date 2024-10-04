@@ -23,9 +23,6 @@
     },
     "brand_website": {
       "type": "string"
-    },
-    "brand_id": {
-      "type": "uid"
     }
   }
 }
