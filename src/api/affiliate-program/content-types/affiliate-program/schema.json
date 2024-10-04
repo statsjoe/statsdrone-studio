@@ -26,6 +26,12 @@
       "relation": "manyToMany",
       "target": "api::brand.brand",
       "mappedBy": "affiliate_programs"
+    },
+    "program_website": {
+      "type": "string"
+    },
+    "program_login": {
+      "type": "string"
     }
   }
 }

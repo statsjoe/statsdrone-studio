@@ -504,6 +504,8 @@ export interface ApiAffiliateProgramAffiliateProgram
       'api::program-software.program-software'
     >;
     brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
+    program_website: Schema.Attribute.String;
+    program_login: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
