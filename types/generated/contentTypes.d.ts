@@ -720,6 +720,33 @@ export interface ApiProgramSoftwareProgramSoftware
   };
 }
 
+export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
+  collectionName: 'websites';
+  info: {
+    singularName: 'website';
+    pluralName: 'websites';
+    displayName: 'websites';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    domain: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website.website'
+    >;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -1100,6 +1127,7 @@ declare module '@strapi/strapi' {
       'api::bonus.bonus': ApiBonusBonus;
       'api::brand.brand': ApiBrandBrand;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
+      'api::website.website': ApiWebsiteWebsite;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
