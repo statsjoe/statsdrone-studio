@@ -755,6 +755,7 @@ export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
     singularName: 'website';
     pluralName: 'websites';
     displayName: 'websites';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -765,6 +766,7 @@ export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::tracking-link.tracking-link'
     >;
+    profile_notes: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

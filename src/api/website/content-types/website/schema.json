@@ -4,7 +4,8 @@
   "info": {
     "singularName": "website",
     "pluralName": "websites",
-    "displayName": "websites"
+    "displayName": "websites",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
       "relation": "manyToMany",
       "target": "api::tracking-link.tracking-link",
       "mappedBy": "websites"
+    },
+    "profile_notes": {
+      "type": "text"
     }
   }
 }
