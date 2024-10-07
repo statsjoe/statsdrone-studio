@@ -675,6 +675,10 @@ export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::affiliate-manager.affiliate-manager'
     >;
+    brand_logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

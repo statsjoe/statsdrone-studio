@@ -35,6 +35,16 @@
       "relation": "manyToMany",
       "target": "api::affiliate-manager.affiliate-manager",
       "mappedBy": "brands"
+    },
+    "brand_logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
