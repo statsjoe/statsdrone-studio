@@ -720,6 +720,35 @@ export interface ApiProgramSoftwareProgramSoftware
   };
 }
 
+export interface ApiTrackingLinkTrackingLink
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'tracking_links';
+  info: {
+    singularName: 'tracking-link';
+    pluralName: 'tracking-links';
+    displayName: 'Tracking Links';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tracking_link: Schema.Attribute.String;
+    websites: Schema.Attribute.Relation<'manyToMany', 'api::website.website'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tracking-link.tracking-link'
+    >;
+  };
+}
+
 export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
   collectionName: 'websites';
   info: {
@@ -732,6 +761,10 @@ export interface ApiWebsiteWebsite extends Struct.CollectionTypeSchema {
   };
   attributes: {
     domain: Schema.Attribute.String;
+    tracking_links: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::tracking-link.tracking-link'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1127,6 +1160,7 @@ declare module '@strapi/strapi' {
       'api::bonus.bonus': ApiBonusBonus;
       'api::brand.brand': ApiBrandBrand;
       'api::program-software.program-software': ApiProgramSoftwareProgramSoftware;
+      'api::tracking-link.tracking-link': ApiTrackingLinkTrackingLink;
       'api::website.website': ApiWebsiteWebsite;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

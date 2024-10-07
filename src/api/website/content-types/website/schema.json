@@ -13,6 +13,12 @@
   "attributes": {
     "domain": {
       "type": "string"
+    },
+    "tracking_links": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tracking-link.tracking-link",
+      "mappedBy": "websites"
     }
   }
 }

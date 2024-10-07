@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracking_links",
+  "info": {
+    "singularName": "tracking-link",
+    "pluralName": "tracking-links",
+    "displayName": "Tracking Links"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tracking_link": {
+      "type": "string"
+    },
+    "websites": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::website.website",
+      "inversedBy": "tracking_links"
+    }
+  }
+}
