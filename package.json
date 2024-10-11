@@ -1,5 +1,5 @@
 {
-  "name": "my-app-name",
+  "name": "statsdrone-studio",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -15,7 +15,7 @@
     "@strapi/plugin-cloud": "5.0.0",
     "@strapi/plugin-graphql": "^5.0.3",
     "@strapi/plugin-users-permissions": "5.0.0",
-    "@strapi/strapi": "5.0.0",
+    "@strapi/strapi": "^5.0.0",
     "better-sqlite3": "9.4.3",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",

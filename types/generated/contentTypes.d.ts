@@ -492,6 +492,7 @@ export interface ApiAffiliateManagerAffiliateManager
     singularName: 'affiliate-manager';
     pluralName: 'affiliate-managers';
     displayName: 'Affiliate Managers';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -505,6 +506,8 @@ export interface ApiAffiliateManagerAffiliateManager
     brands: Schema.Attribute.Relation<'manyToMany', 'api::brand.brand'>;
     affiliate_manager_email: Schema.Attribute.Email;
     affiliate_manager_skype: Schema.Attribute.String;
+    affiliate_manager_job_title: Schema.Attribute.String;
+    affiliate_manager_linkedin: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -545,6 +548,14 @@ export interface ApiAffiliateProgramAffiliateProgram
       'manyToMany',
       'api::affiliate-manager.affiliate-manager'
     >;
+    payment_frequency: Schema.Attribute.Enumeration<
+      ['monthly', 'biweekly', 'weekly', 'daily']
+    >;
+    program_email: Schema.Attribute.String;
+    program_nco: Schema.Attribute.Boolean;
+    program_min_rs: Schema.Attribute.Integer;
+    program_max_rs: Schema.Attribute.Integer;
+    program_sub_aff: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

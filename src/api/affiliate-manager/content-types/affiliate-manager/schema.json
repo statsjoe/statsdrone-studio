@@ -4,7 +4,8 @@
   "info": {
     "singularName": "affiliate-manager",
     "pluralName": "affiliate-managers",
-    "displayName": "Affiliate Managers"
+    "displayName": "Affiliate Managers",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,6 +31,12 @@
       "type": "email"
     },
     "affiliate_manager_skype": {
+      "type": "string"
+    },
+    "affiliate_manager_job_title": {
+      "type": "string"
+    },
+    "affiliate_manager_linkedin": {
       "type": "string"
     }
   }

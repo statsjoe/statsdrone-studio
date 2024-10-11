@@ -38,6 +38,30 @@
       "relation": "manyToMany",
       "target": "api::affiliate-manager.affiliate-manager",
       "mappedBy": "affiliate_programs"
+    },
+    "payment_frequency": {
+      "type": "enumeration",
+      "enum": [
+        "monthly",
+        "biweekly",
+        "weekly",
+        "daily"
+      ]
+    },
+    "program_email": {
+      "type": "string"
+    },
+    "program_nco": {
+      "type": "boolean"
+    },
+    "program_min_rs": {
+      "type": "integer"
+    },
+    "program_max_rs": {
+      "type": "integer"
+    },
+    "program_sub_aff": {
+      "type": "boolean"
     }
   }
 }
